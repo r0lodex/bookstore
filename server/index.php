@@ -28,12 +28,13 @@ function _template($path, $data=null) {
     echo $template->render($data);
 }
 
-$app->on('GET /', function() {
+$app->on('/', function() {
     $this->end(_template('index', []));
-})->on('GET /contact', function() {
+})->on('/contact', function() {
     $this->end(_template('contact', []));
-})->on('GET /how-to', function() {
+})->on('/how-to', function() {
     $this->end(_template('how-to', []));
-})->on('GET /dashboard', function() {
+})->on('/dashboard', function() {
+    // Yang ni sepatutnya ada middleware that checks for session
     $this->end(_template('dashboard', []));
 });
