@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'sanfran';
+    src: url('fonts/sanfran.eot');
+    src: url('fonts/sanfran.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sanfran.woff2') format('woff2'),
+         url('fonts/sanfran.woff') format('woff'),
+         url('fonts/sanfran.ttf') format('truetype'),
+         url('fonts/sanfran.svg#sanfran') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sanfran';
+    src: url('fonts/sanfranb.eot');
+    src: url('fonts/sanfranb.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sanfranb.woff2') format('woff2'),
+         url('fonts/sanfranb.woff') format('woff'),
+         url('fonts/sanfranb.ttf') format('truetype'),
+         url('fonts/sanfranb.svg#sanfranb') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
