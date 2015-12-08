@@ -3,4 +3,57 @@
 
 {% block content %}
     {% embed 'partials/navigation.twig' %}{% endembed %}
+    <section id="body">
+        <div class="container">
+            <h1>Hubungi Kami</h1>
+            <p>
+                Kami berusaha untuk memberikan perkhidmatan yang terbaik untuk anda. Gunakan borang dibawah untuk menghantar maklumbalas anda
+                ataupun emailkan ke <a href="mailto:bookstore@sihniaga.com">bookstore@sihniaga.com</a>. Selain itu, anda juga boleh melawat kedai
+                kami yang terletak di alamat yang tertera.
+            </p>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="map" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div class="col-md-6">
+                    <form class="feedback_form" method="POST">
+                        <fieldset class="form-group">
+                            <label>Nama</label>
+                            <input class="form-control" placeholder="Muhammad bin Abdullah" name="name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Contact</label>
+                            <input class="form-control" placeholder="Email atau No Telefon" name="contact">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Maklumbalas</label>
+                            <textarea class="form-control" rows="10" name="komen"></textarea>
+                        </fieldset>
+                        <input type="submit" value="Hantar" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        function initMap() {
+            var myLatLng = {lat: 1.605359, lng: 103.719972};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'SIH Niaga Sdn Bhd'
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsb9orV4-nPzV3C3fAXm0if4GPENOb7aI&signed_in=true&callback=initMap"></script>
 {% endblock %}

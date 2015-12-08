@@ -15,6 +15,9 @@ body { background: #EEE; }
     small { display: block; }
 }
 
-footer {
-    margin-top: 100px;
+footer { margin-top: 100px; }
+form label {
+    margin-bottom: 0;
+    font-size: 0.8em;
+    @extend .text-muted;
 }
