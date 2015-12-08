@@ -4,7 +4,7 @@
     "rolodex888@gmail.com"
   ],
   "description": "Online bookstore app for educational institutions.",
-  "main": "index.php",
+  "main": "index",
   "moduleType": [
     "node"
   ],
@@ -21,7 +21,7 @@
     "bower_components",
     "test",
     "tests",
-    "client/components"
+    "components"
   ],
   "dependencies": {
     "angular-resource": "~1.4.8",

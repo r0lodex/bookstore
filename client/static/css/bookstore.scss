@@ -2,6 +2,19 @@
 @import 'fonts';
 @import 'linearicons';
 
-body {
-    background: #EEE;
+body { background: #EEE; }
+.navbar { border-radius: 0; }
+
+#body { padding-top: 20px; }
+.email-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #FFF;
+    box-shadow: 0 0 3px rgba(#000, 0.1);
+    small { display: block; }
+}
+
+footer {
+    margin-top: 100px;
 }

@@ -1,0 +1,10 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Kedai Buku SIH</a>
+    <ul class="nav navbar-nav">
+        {% for nav in navs %}
+            <li class="nav-item {% if nav[1] == active_page %} active{% endif %}">
+                <a class="nav-link" href="{{ nav[0] }}">{{ nav[1] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
