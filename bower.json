@@ -1,0 +1,32 @@
+{
+  "name": "bookstore",
+  "authors": [
+    "rolodex888@gmail.com"
+  ],
+  "description": "Online bookstore app for educational institutions.",
+  "main": "index.php",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "bookstore",
+    "sihniaga"
+  ],
+  "license": "MIT",
+  "homepage": "http://sihniaga.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/components"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.4.8",
+    "angular": "~1.4.8",
+    "bootstrap": "4",
+    "angular-route": "~1.4.8"
+  }
+}
