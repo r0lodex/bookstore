@@ -8,10 +8,10 @@
             <h1><strong>Selamat Datang ke {{ env.BOOKSTORE_TITLE }}</strong></h1>
             <p class="lead text-muted">Pembelian buku dan alatan pembelajaran Sekolah Rendah Islam Hidayah secara <i>online</i>.</p>
             <p>Untuk membeli, sila masukkan email anda.</p>
-            <form action="/login" class="email-form">
+            <form action="/login" class="email-form" method="POST">
                 <fieldset class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Masukkan Email Anda">
+                        <input type="text" class="form-control" name="email" placeholder="Masukkan Email Anda">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">Hantar</button>
                         </span>
