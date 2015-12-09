@@ -1,17 +1,11 @@
 <?php
-/*
-
-    1 - Setup static folder using Horus
-    2 - Deny public access to non-static folders
-
-*/
-
-
 require 'Horus.php';
 require_once 'Twig/Autoloader.php';
 
 Twig_Autoloader::register();
 $app = new Horus();
+
+$app->config->base = '/';
 
 function _template($path, $data=null) {
     $loader   = new Twig_Loader_Filesystem('../templates');
@@ -34,6 +28,10 @@ $app->on('/', function() {
     $this->end(_template('contact', []));
 })->on('/how-to', function() {
     $this->end(_template('how-to', []));
+})->on('/legal/policy', function() {
+    $this->end(_template('legal_policy', []));
+})->on('/legal/tnc', function() {
+    $this->end(_template('legal_tnc', []));
 })->on('/dashboard', function() {
     // Yang ni sepatutnya ada middleware that checks for session
     $this->end(_template('dashboard', []));

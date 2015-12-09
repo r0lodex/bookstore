@@ -1,21 +1,21 @@
 {%
     set navs = [
-        ['how-to', 'Panduan'],
-        ['contact', 'Hubungi Kami']
+        ['/how-to', 'Panduan'],
+        ['/contact', 'Hubungi Kami']
     ]
 %}
 
 <!DOCTYPE html>
-<html ng-app="bookstore">
+<html>
 <head>
     <title>{{ env.BOOKSTORE_TITLE }} &mdash; {{ active_page }}</title>
-    <link rel="stylesheet" type="text/css" href="client/static/css/bookstore.css" />
+    <link rel="stylesheet" type="text/css" href="/client/static/css/bookstore.css" />
 </head>
 <body>
 
 {% block content %}{% endblock %}
 
-<script src="static/js/min/_libraries-min.js"></script>
+<script src="/client/static/js/min/_libraries-min.js"></script>
 
 {% block javascripts %}{% endblock %}
 
