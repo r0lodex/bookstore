@@ -1,11 +1,11 @@
 {% extends 'partials/base.twig' %}
-{% set active_page = 'Hubungi Kami' %}
+{% set active_page = 'Hubungi' %}
 
 {% block content %}
     {% embed 'partials/navigation.twig' %}{% endembed %}
     <section id="body">
         <div class="container">
-            <h1>Hubungi Kami</h1>
+            <h3><strong>Hubungi Kami</strong></h3>
             <p>
                 Kami berusaha untuk memberikan perkhidmatan yang terbaik untuk anda. Gunakan borang dibawah untuk menghantar maklumbalas anda
                 ataupun emailkan ke <a href="mailto:bookstore@sihniaga.com">bookstore@sihniaga.com</a>. Selain itu, anda juga boleh melawat kedai
@@ -20,9 +20,11 @@
                         81300 Skudai, Johor. <abbr title="phone">Tel:</abbr> 019-7697809 <br>
                     </address>
                     <div id="map2"></div>
+                    <br>
                 </div>
                 <div class="col-md-6">
                     <form class="feedback_form" method="POST">
+                        <h5>Borang Maklumbalas</h5>
                         <fieldset class="form-group">
                             <label>Nama</label>
                             <input class="form-control" placeholder="Muhammad bin Abdullah" name="name">
