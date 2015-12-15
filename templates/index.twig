@@ -7,18 +7,25 @@
         <div class="container text-center">
             <h1><strong>Selamat Datang ke {{ env.BOOKSTORE_TITLE }}</strong></h1>
             <p class="lead text-muted">Pembelian buku dan alatan pembelajaran Sekolah Rendah Islam Hidayah secara <i>online</i>.</p>
-            <p>Untuk membeli, sila masukkan email anda.</p>
-            <form action="/login" class="email-form" method="POST">
-                <fieldset class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" placeholder="Masukkan Email Anda">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">Hantar</button>
-                        </span>
-                    </div>
-                </fieldset>
-                <small class="text-muted">Anda akan menerima email yang mengandungi pautan ke <strong>Dashboard</strong>. Klik pautan tersebut untuk meneruskan pembelian.</small>
-            </form>
+            {% if submitted %}
+                <p>
+                    Kami telah menghantar email ke {{ email }}. <br>
+                    <small>Lihat dalam <em>Junk/Spam</em> sekiranya email kami tiada di dalam <em>inbox</em> anda.</small>
+                </p>
+            {% else %}
+                <p>Untuk membeli, sila masukkan email anda.</p>
+                <form action="/" class="email-form" method="POST">
+                    <fieldset class="form-group">
+                        <div class="input-group {% if error %}has-error{% endif %}">
+                            <input type="text" class="form-control" name="email" placeholder="Masukkan Email Anda">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Hantar</button>
+                            </span>
+                        </div>
+                    </fieldset>
+                    <small class="text-muted">Anda akan menerima email yang mengandungi pautan ke <strong>Dashboard</strong>. Klik pautan tersebut untuk meneruskan pembelian.</small>
+                </form>
+            {% endif %}
         </div>
     </section>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'partials/base.twig' %}
+{% set active_page = 'Senarai' %}
+
+{% block content %}
+    {% embed 'partials/navigation.twig' %}{% endembed %}
+    <section id="body">
+        <div class="container">
+            <h1>Senarai Buku &amp; Peralatan</h1>
+            <p>
+                Berikut adalah senarai buku dan peralatan yang dijual oleh Kedai SIH.
+            </p>
+            <hr>
+            <table class="table table-striped table-sm small">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tajuk Buku</th>
+                        <th>Penerbit</th>
+                        <th>Tahun Terbitan</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ book.tajuk }}</td>
+                            <td>{{ book.info3 }}</td>
+                            <td>{{ book.info2 }}</td>
+                            <td>RM{{ book.harga }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

@@ -6,7 +6,7 @@ var BSA = angular.module('bookstore', [
 ])
 
 .constant('ENV', {
-    API_EP: '../server',
+    API_EP: '/api',
     APP_TITLE: BOOKSTORE_TITLE
 })
 
