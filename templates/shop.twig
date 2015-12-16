@@ -6,6 +6,95 @@
 </head>
 <body ng-app="bookstore">
 
+<div class="container">
+    <div class="text-center shop-header">
+        <h1><span class="lnr lnr-store"></span></h1>
+        <h3>
+            <strong>Kedai SIH</strong>
+            <small class="text-muted">username@email.com</small>
+        </h3>
+        <ul class="list-inline small">
+            <li><a class="active" href="#">Pilih</a></li>
+            <li><a href="#">Bayar <span class="notification text-warning">&bull;</span></a></li>
+            <li><a href="#">Keluar</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div class="instruction text-center">
+        <small class="text-muted">
+            Klik <span><span class="lnr lnr-plus-circle"></span> Pilih</span> untuk memilih pakej yang berkenaan.<br>
+            Klik pada nama pakej untuk melihat kandungan pakej tersebut.
+        </small>
+    </div>
+
+    <ul class="list-group package">
+        <li class="list-group-item">
+            <span class="list-group-item-heading">
+                <a data-toggle="collapse" data-parent=".package" href="#pakej1"><strong>Pakej Tahun 1</strong></a>
+            </span>
+            <ul class="package-control list-inline small">
+                <li>1 Item</li>
+                <li><strong>RM200.00</strong></li>
+                <li><a href="#"><span class="lnr lnr-plus-circle"></span> Pilih</a></li>
+            </ul>
+            <div id="pakej1" class="package-content panel-collapse collapse out">
+                <table class="table table-striped table-sm small">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" checked> Tajuk Buku</th>
+                            <th>Penerbit</th>
+                            <th>Tahun</th>
+                            <th class="text-center">Qty</th>
+                            <th class="text-right">Harga <span class="hidden-sm-down">RM</span></th>
+                            <th class="text-right">Jumlah <span class="hidden-sm-down">RM</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" checked>
+                                <span class="package-list-title">Bahasa Malaysia</span>
+                            </td>
+                            <td>DBP</td>
+                            <td>2013</td>
+                            <td class="text-center">
+                                <select>
+                                    <option value="1">1</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            <td class="text-right">100.00</td>
+                            <td class="text-right">200.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <span class="list-group-item-heading">
+                <a data-toggle="collapse" data-parent=".package" href="#pakej2"><strong>Pakej Tahun 2</strong></a>
+            </span>
+            <ul class="package-control list-inline small">
+                <li>1 Item</li>
+                <li><strong>RM200.00</strong></li>
+                <li><a href="#"><span class="lnr lnr-plus-circle"></span> Pilih</a></li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <span class="list-group-item-heading">
+                <a data-toggle="collapse" data-parent=".package" href="#pakej3"><strong>Pakej Tahun 3</strong></a>
+            </span>
+            <ul class="package-control list-inline small">
+                <li>1 Item</li>
+                <li><strong>RM200.00</strong></li>
+                <li><a href="#"><span class="lnr lnr-plus-circle"></span> Pilih</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
 
 <script src="/client/static/js/min/_libraries-min.js"></script>

@@ -22,8 +22,79 @@ form label {
     @extend .text-muted;
 }
 
+a:hover { text-decoration: none; }
+
 #map2 {
     width: 100%;
     height: 420px;
     border: 1px solid #FFF;
+}
+
+
+.shop-header {
+    h1 {
+        margin-bottom: 0;
+        font-size: 3rem;
+    }
+    h3 small {
+        margin-top: 5px;
+        font-size: 0.5em;
+        display: block;
+    }
+    ul .active {
+        border-bottom: 1px solid;
+        color: #666;
+        &:hover { cursor: default; }
+    }
+    ul li {
+        position: relative;
+        .notification {
+            position: absolute;
+            font-size: 1.5em;
+            top: -12px;
+            right: -2px;
+        }
+    }
+}
+
+.package {
+    max-width: 700px;
+    margin: 0 auto;
+    > li { position: relative; }
+    .package-control {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+    .package-content {
+        margin-top: 10px;
+        .table {
+            thead th {
+                @extend .text-muted;
+                font-weight: normal;
+                font-size: 0.8em;
+                border-bottom: 0;
+                input[type="checkbox"] {
+                    position: relative;
+                    top: -1px;
+                    margin-right: 8px;
+                }
+            }
+            td {
+                position: relative;
+                input[type="checkbox"] {
+                    position: absolute;
+                    top: 8px;
+                }
+            }
+            .package-list-title {
+                display: inline-block;
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+.instruction {
+    margin-bottom: 20px;
 }
