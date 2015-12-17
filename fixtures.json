@@ -1,0 +1,18 @@
+{
+    "packages": [
+        {
+            "pack_title" : "Pakej Tahun 1",
+            "books" : [
+                { "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
+                { "title": "Bahasa Inggeris", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
+            ]
+        },
+        {
+            "pack_title" : "Pakej Tahun 2",
+            "books" : [
+                { "title": "Kemahiran Hidup", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
+                { "title": "Pendidikan Moral", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
+            ]
+        }
+    ]
+}

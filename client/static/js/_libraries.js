@@ -1,5 +1,6 @@
 // @codekit-prepend "../../components/jquery/dist/jquery.min.js"
-// @codekit-prepend "../../components/bootstrap/dist/js/bootstrap.min.js"
 // @codekit-prepend "../../components/angular/angular.min.js"
 // @codekit-prepend "../../components/angular-resource/angular-resource.min.js"
 // @codekit-prepend "../../components/angular-route/angular-route.min.js"
+// @codekit-prepend "../../components/angular-animate/angular-animate.min.js"
+// @codekit-prepend "../../components/angular-bootstrap/ui-bootstrap-tpls.min.js"

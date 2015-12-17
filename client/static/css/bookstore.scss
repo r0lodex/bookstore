@@ -22,7 +22,10 @@ form label {
     @extend .text-muted;
 }
 
-a:hover { text-decoration: none; }
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
 
 #map2 {
     width: 100%;
@@ -97,4 +100,11 @@ a:hover { text-decoration: none; }
 
 .instruction {
     margin-bottom: 20px;
+}
+
+// ANIMATIONS
+
+.animate.collapsing {
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
 }
