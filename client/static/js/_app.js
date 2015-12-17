@@ -12,7 +12,9 @@ var BSA = angular.module('bookstore', [
     APP_TITLE: BOOKSTORE_TITLE,
 })
 
-.run(function($rootScope){})
+.run(function($rootScope){
+    $rootScope.cartItems = []
+})
 
 .config(function($routeProvider) {
     $routeProvider.when('/', {
@@ -38,44 +40,46 @@ var BSA = angular.module('bookstore', [
 
 // CONTROLLERS
 // =======================================
-.controller('pilihCtrl', function($scope, Books) {
+.controller('pilihCtrl', function($rootScope, $scope, Books) {
     $scope.books = Books.query(function(r) {
         // Hiding collapse items by default
         $scope.collapse = {}
         for (var i = 0; i <= r.packages.length-1; i++) {
-            $scope.collapse[i] = false
+            $scope.collapse[i] = true
         }
     })
 
-    $scope.updatePackageTotal = function(books, checked) {
-        var tot = 0
+    $scope.updatePackageDetail = function(books) {
+        var tot = { price: 0, count: 0 }
         books.forEach(function(v,k) {
-            tot += v.price * v.qty
+            if (v.checked) {
+                tot.price += v.price * v.qty
+                tot.count++
+            }
         })
         return tot
     }
 
-    var cartItems = []
     $scope.addToCart = function(books) {
         var arr = []
         angular.copy(books, arr) // Make copies!
         arr.forEach(function(bv) {
             if (bv.checked) {
                 var add = true
-                if (cartItems.length) {
-                    for (var i = cartItems.length - 1; i >= 0; i--) {
-                        if (cartItems[i].id == bv.id) {
+                if ($rootScope.cartItems.length) {
+                    for (var i = $rootScope.cartItems.length - 1; i >= 0; i--) {
+                        if ($rootScope.cartItems[i].id == bv.id) {
                             add = false
-                            cartItems[i].qty += bv.qty
+                            $rootScope.cartItems[i].qty += bv.qty
                             return false
                         }
                     }
                 }
                 if (add) {
-                    cartItems.push(bv)
+                    $rootScope.cartItems.push(bv)
                 }
             }
         })
-        console.log(JSON.stringify(cartItems))
+        console.log($rootScope.cartItems)
     }
 })

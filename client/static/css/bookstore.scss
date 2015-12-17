@@ -60,10 +60,10 @@ a:hover {
     }
 }
 
-.package {
+.shop-container {
     max-width: 700px;
     margin: 0 auto;
-    > li { position: relative; }
+    .list-group > li { position: relative; }
     .package-control {
         position: absolute;
         right: 16px;
@@ -71,30 +71,47 @@ a:hover {
     }
     .package-content {
         margin-top: 10px;
-        .table {
-            thead th {
-                @extend .text-muted;
-                font-weight: normal;
-                font-size: 0.8em;
-                border-bottom: 0;
-                input[type="checkbox"] {
-                    position: relative;
-                    top: -1px;
-                    margin-right: 8px;
-                }
-            }
-            td {
+        > small {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.7em;
+        }
+    }
+    .table {
+        margin-bottom: 40px;
+        thead th {
+            @extend .text-muted;
+            font-weight: normal;
+            font-size: 0.8em;
+            border-bottom: 0;
+            input[type="checkbox"] {
                 position: relative;
-                input[type="checkbox"] {
-                    position: absolute;
-                    top: 8px;
-                }
-            }
-            .package-list-title {
-                display: inline-block;
-                padding-left: 20px;
+                top: -1px;
+                margin-right: 8px;
             }
         }
+        td {
+            position: relative;
+            input[type="checkbox"] {
+                position: absolute;
+                top: 8px;
+            }
+        }
+        .package-list-title {
+            display: inline-block;
+            padding-left: 20px;
+        }
+    }
+}
+
+.item-list {
+    padding-top: 5px;
+    margin-top: 20px;
+    border-top: 1px dashed #CCC;
+    h6 {
+        margin: 15px 0;
+        font-weight: bold;
+        @extend .text-muted;
     }
 }
 

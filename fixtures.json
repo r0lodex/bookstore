@@ -1,17 +1,35 @@
 {
     "packages": [
         {
-            "pack_title" : "Pakej Tahun 1",
-            "books" : [
-                { "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
-                { "title": "Bahasa Inggeris", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
+            "title" : "Pakej Tahun 1",
+            "items" : [
+                { "id": 1, "qty": 2, "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
+                { "id": 2, "qty": 2, "title": "Bahasa Inggeris", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
             ]
         },
         {
-            "pack_title" : "Pakej Tahun 2",
-            "books" : [
-                { "title": "Kemahiran Hidup", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
-                { "title": "Pendidikan Moral", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
+            "title" : "Pakej Tahun 2",
+            "items" : [
+                { "id": 3, "qty": 2, "title": "Kemahiran Hidup", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
+                { "id": 4, "qty": 2, "title": "Pendidikan Moral", "publisher": "Longman", "published_year": "2012", "price": 130.00 }
+            ]
+        }
+    ],
+    "books": [
+        {
+            "category" : "Tahun 1",
+            "items": [
+                { "id": 5, "title": "Matematik", "publisher": "Sasbadi", "published_year": "2013", "price": 80.00 },
+                { "id": 6, "title": "Sejarah", "publisher": "DBP", "published_year": "2013", "price": 120.00 },
+                { "id": 7, "title": "Sains", "publisher": "Longman", "published_year": "2013", "price": 150.00 }
+            ]
+        },
+        {
+            "category" : "Tahun 2",
+            "items": [
+                { "id": 8, "title": "Matematik", "publisher": "Sasbadi", "published_year": "2013", "price": 80.00 },
+                { "id": 9, "title": "Sejarah", "publisher": "DBP", "published_year": "2013", "price": 120.00 },
+                { "id": 10, "title": "Sains", "publisher": "Longman", "published_year": "2013", "price": 150.00 }
             ]
         }
     ]
