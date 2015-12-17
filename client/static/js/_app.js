@@ -9,7 +9,7 @@ var BSA = angular.module('bookstore', [
 
 .constant('ENV', {
     API_EP: '/api',
-    APP_TITLE: BOOKSTORE_TITLE
+    APP_TITLE: BOOKSTORE_TITLE,
 })
 
 .run(function($rootScope){})
@@ -43,7 +43,39 @@ var BSA = angular.module('bookstore', [
         // Hiding collapse items by default
         $scope.collapse = {}
         for (var i = 0; i <= r.packages.length-1; i++) {
-            $scope.collapse[i] = true
+            $scope.collapse[i] = false
         }
     })
+
+    $scope.updatePackageTotal = function(books, checked) {
+        var tot = 0
+        books.forEach(function(v,k) {
+            tot += v.price * v.qty
+        })
+        return tot
+    }
+
+    var cartItems = []
+    $scope.addToCart = function(books) {
+        var arr = []
+        angular.copy(books, arr) // Make copies!
+        arr.forEach(function(bv) {
+            if (bv.checked) {
+                var add = true
+                if (cartItems.length) {
+                    for (var i = cartItems.length - 1; i >= 0; i--) {
+                        if (cartItems[i].id == bv.id) {
+                            add = false
+                            cartItems[i].qty += bv.qty
+                            return false
+                        }
+                    }
+                }
+                if (add) {
+                    cartItems.push(bv)
+                }
+            }
+        })
+        console.log(JSON.stringify(cartItems))
+    }
 })
