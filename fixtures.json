@@ -1,6 +1,7 @@
 {
     "packages": [
         {
+            "id": 11,
             "title" : "Pakej Tahun 1",
             "items" : [
                 { "id": 1, "qty": 2, "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
@@ -8,6 +9,7 @@
             ]
         },
         {
+            "id": 12,
             "title" : "Pakej Tahun 2",
             "items" : [
                 { "id": 3, "qty": 2, "title": "Kemahiran Hidup", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
@@ -19,6 +21,7 @@
         {
             "category" : "Tahun 1",
             "items": [
+                { "id": 1, "qty": 2, "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
                 { "id": 5, "title": "Matematik", "publisher": "Sasbadi", "published_year": "2013", "price": 80.00 },
                 { "id": 6, "title": "Sejarah", "publisher": "DBP", "published_year": "2013", "price": 120.00 },
                 { "id": 7, "title": "Sains", "publisher": "Longman", "published_year": "2013", "price": 150.00 }

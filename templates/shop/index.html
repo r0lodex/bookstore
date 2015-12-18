@@ -15,7 +15,7 @@
             <ul class="package-control list-inline small">
                 <li ng-bind="updatePackageDetail(package.items).count + ' item'"></li>
                 <li><strong>RM<span ng-bind="updatePackageDetail(package.items).price | number: 2"></span></strong></li>
-                <li><a ng-click="addToCart(package.items)"><span class="lnr lnr-plus-circle"></span></a></li>
+                <li><a ng-click="addToCart(package.items)"><span class="lnr lnr-plus-circle"></span> Ambil</a></li>
             </ul>
             <div uib-collapse="collapse[$index]" class="package-content animate">
                 <small class="text-muted">Buang tanda <input type="checkbox" checked disabled> pada <i>item</i> yang tidak berkenaan. Kuantiti boleh diubah pada <a href="#/bayar">Bayar</a>.</small>
@@ -63,9 +63,9 @@
                             <th>Tajuk Buku</th>
                             <th>Penerbit</th>
                             <th>Tahun</th>
-                            <th class="text-center">Qty</th>
                             <th class="text-right">Harga <span class="hidden-sm-down">RM</span></th>
-                            <th class="text-right">Jumlah <span class="hidden-sm-down">RM</span></th>
+                            <th class="text-center">Qty</th>
+                            <!-- <th class="text-right">Jumlah <span class="hidden-sm-down">RM</span></th> -->
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -74,12 +74,12 @@
                             <td ng-bind="book.title"></td>
                             <td ng-bind="book.publisher"></td>
                             <td ng-bind="book.published_year">2013</td>
-                            <td class="text-center">
-                                <select ng-model="book.qty" ng-options="v for v in [1,2,3,4,5]" ng-change="updatePackageTotal(package.books)"></select>
-                            </td>
                             <td class="text-right" ng-bind="book.price | number:2"></td>
-                            <td class="text-right" ng-bind="book.price * book.qty | number: 2"></td>
-                            <td class="text-center"><a ng-click="addToCart(package.items)"><span class="lnr lnr-plus-circle"></span></a></td>
+                            <td class="text-center">
+                                <select ng-model="book.qty" ng-options="v for v in [1,2,3,4,5]"></select>
+                            </td>
+                            <!-- <td class="text-right" ng-bind="book.price * book.qty | number: 2"></td> -->
+                            <td class="text-center"><a ng-click="addToCart(book)"><span class="lnr lnr-plus-circle"></span> Ambil</a></td>
                         </tr>
                     </tbody>
                 </table>

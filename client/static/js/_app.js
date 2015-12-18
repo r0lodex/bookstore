@@ -61,25 +61,36 @@ var BSA = angular.module('bookstore', [
     }
 
     $scope.addToCart = function(books) {
-        var arr = []
-        angular.copy(books, arr) // Make copies!
-        arr.forEach(function(bv) {
-            if (bv.checked) {
-                var add = true
-                if ($rootScope.cartItems.length) {
-                    for (var i = $rootScope.cartItems.length - 1; i >= 0; i--) {
-                        if ($rootScope.cartItems[i].id == bv.id) {
-                            add = false
-                            $rootScope.cartItems[i].qty += bv.qty
-                            return false
-                        }
+        var obj, add = true,
+            checkdupes = function(origin, slave) {
+                var dupe = true
+                for (var i = origin.length - 1; i >= 0; i--) {
+                    if (origin[i].id == slave.id) {
+                        origin[i].qty += slave.qty
+                        dupe = false
+                        return false
                     }
                 }
-                if (add) {
-                    $rootScope.cartItems.push(bv)
-                }
+                return dupe
             }
-        })
+
+        if ($.isArray(books)) {
+            obj = []
+            angular.copy(books, obj)
+            obj.forEach(function(bv) {
+                if (bv.checked) {
+                    if ($rootScope.cartItems.length) {
+                        add = checkdupes($rootScope.cartItems, bv)
+                    }
+                    if (add) $rootScope.cartItems.push(bv)
+                }
+            })
+        } else {
+            obj = {}
+            angular.copy(books, obj)
+            add = checkdupes($rootScope.cartItems, obj)
+            if (add) $rootScope.cartItems.push(obj)
+        }
         console.log($rootScope.cartItems)
     }
 })
