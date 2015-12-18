@@ -1,7 +1,7 @@
 <div class="instruction text-center">
     <small class="text-muted">
         Klik <span class="helper-text"><span class="lnr lnr-plus-circle"></span> Ambil</span> untuk memilih <i>item</i> yang berkenaan.<br>
-        Klik <a href="#/bayar">Bayar</a> untuk menyemak pembelian dan membuat pembayaran.<br>
+        Klik <a href="#/bayar">Bayar</a> untuk menyemak ambilan dan membuat pembayaran.<br>
     </small>
 </div>
 
@@ -20,7 +20,7 @@
                 <ul class="package-control list-inline small">
                     <li ng-bind="updatePackageDetail(package.items).count + ' item'"></li>
                     <li><strong>RM<span ng-bind="updatePackageDetail(package.items).price | number: 2"></span></strong></li>
-                    <li><a ng-click="addToCart(package.items)"><span class="lnr lnr-plus-circle"></span> Ambil</a></li>
+                    <li><a ng-click="addToCart(package.items, package)"><span class="lnr lnr-plus-circle"></span> Ambil</a></li>
                 </ul>
                 <div uib-collapse="collapse[$index]" class="table-responsive package-content animate">
                     <small class="text-muted">Buang tanda <input type="checkbox" checked disabled> pada <i>item</i> yang tidak berkenaan. Kuantiti boleh diubah pada <a href="#/bayar">Bayar</a>.</small>
@@ -61,7 +61,7 @@
             <h6>
                 <a ng-click="sen[$index] = !sen[$index]">
                     <small><span class="lnr" ng-class="{ 'lnr-chevron-down-circle':sen[$index], 'lnr-chevron-up-circle':!sen[$index] }"></span></small>
-                    Senarai <span ng-bind="b.category"></span>
+                    <span ng-bind="b.category"></span>
                 </a>
             </h6>
             <div uib-collapse="sen[$index]" class="table-responsive animate">

@@ -4,3 +4,4 @@
 // @codekit-prepend "../../components/angular-route/angular-route.min.js"
 // @codekit-prepend "../../components/angular-animate/angular-animate.min.js"
 // @codekit-prepend "../../components/angular-bootstrap/ui-bootstrap-tpls.min.js"
+// @codekit-prepend "../../components/angular-ui-notification/dist/angular-ui-notification.min.js"

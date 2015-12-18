@@ -4,7 +4,8 @@ var BSA = angular.module('bookstore', [
     'ngRoute',
     'ngResource',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui-notification'
 ])
 
 .constant('ENV', {
@@ -12,7 +13,7 @@ var BSA = angular.module('bookstore', [
     APP_TITLE: BOOKSTORE_TITLE,
 })
 
-.run(function($rootScope){
+.run(function($rootScope, $location){
     $rootScope.cartItems = []
     $rootScope.grandTotal = function() {
         var tot = { count: 0, total: 0 }
@@ -31,6 +32,23 @@ var BSA = angular.module('bookstore', [
         }
         return tot;
     }
+
+    $rootScope.qtymod = function(book, add) {
+        if (add) {
+            book.qty = book.qty + 1
+        } else {
+            book.qty = (book.qty > 1) ? book.qty - 1 : book.qty
+        }
+    }
+
+    $rootScope.removeFromCart = function(item) {
+        var index = $rootScope.cartItems.indexOf(item);
+        $rootScope.cartItems.splice(index, 1);
+    }
+
+    $rootScope.$on('$routeChangeSuccess', function () {
+        $rootScope.currentPath = $location.path();
+    });
 })
 
 .config(function($routeProvider) {
@@ -47,6 +65,14 @@ var BSA = angular.module('bookstore', [
     $routeProvider.otherwise({ redirectTo: '/' });
 })
 
+.config(function(NotificationProvider) {
+    NotificationProvider.setOptions({
+        startTop: 40,
+        positionX: 'right',
+        positionY: 'top'
+    });
+})
+
 // FACTORIES
 // =======================================
 .factory('Books', function($resource, ENV) {
@@ -57,7 +83,7 @@ var BSA = angular.module('bookstore', [
 
 // CONTROLLERS
 // =======================================
-.controller('shopCtrl', function($rootScope, $scope, Books) {
+.controller('shopCtrl', function($rootScope, $scope, Books, Notification) {
     $scope.books = Books.query(function(r) {
         // Hiding collapse items by default
         $scope.collapse = {}
@@ -77,8 +103,8 @@ var BSA = angular.module('bookstore', [
         return tot
     }
 
-    $scope.addToCart = function(books) {
-        var obj, add = true,
+    $scope.addToCart = function(books, _package) {
+        var obj, add = true, msg = '',
             checkdupes = function(origin, slave) {
                 var dupe = true
                 for (var i = origin.length - 1; i >= 0; i--) {
@@ -92,6 +118,7 @@ var BSA = angular.module('bookstore', [
             }
 
         if ($.isArray(books)) {
+            var jumlah = 0
             obj = []
             angular.copy(books, obj)
             obj.forEach(function(bv) {
@@ -102,12 +129,20 @@ var BSA = angular.module('bookstore', [
                     if (add) $rootScope.cartItems.push(bv)
                 }
             })
+            msg = _package.title + ' diambil.'
         } else {
             obj = {}
             angular.copy(books, obj)
             add = checkdupes($rootScope.cartItems, obj)
-            if (add) $rootScope.cartItems.push(obj)
+            if (add) {
+                msg = obj.qty + 'x ' + obj.title + ' diambil.'
+                $rootScope.cartItems.push(obj)
+            } else {
+                msg = 'Kuantiti untuk ' + obj.title + ' ditambah ' + obj.qty
+            }
         }
-        console.log($rootScope.cartItems)
+        Notification(msg)
     }
 })
+
+.controller('bayarCtrl', function($scope) {})

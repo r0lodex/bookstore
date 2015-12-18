@@ -8,8 +8,8 @@
 <body ng-app="bookstore">
 
 <div class="container">
-    <a id="cart_overview" class="small" ng-show="cartItems.length" href="#/bayar">
-        <span ng-bind="grandTotal().count"></span> Items RM<span ng-bind="grandTotal().total | number:2"></span>
+    <a id="cart_overview" class="small" href="#/bayar">
+        <span ng-bind="grandTotal().count"></span> item RM<span ng-bind="grandTotal().total | number:2"></span>
     </a>
 
     <div class="text-center shop-header">
@@ -19,8 +19,8 @@
             <small class="text-muted">username@email.com</small>
         </h3>
         <ul class="list-inline small">
-            <li><a class="active" href="#/pilih">Pilih</a></li>
-            <li><a href="#/bayar">Bayar <span ng-show="cartItems.length" class="notification text-warning">&bull;</span></a></li>
+            <li><a ng-class="{ active: currentPath == '/' }" href="#/pilih">Pilih</a></li>
+            <li><a ng-class="{ active: currentPath == '/bayar' }" href="#/bayar">Bayar <span ng-show="cartItems.length" class="notification text-warning">&bull;</span></a></li>
             <li><a href="/">Keluar</a></li>
         </ul>
     </div>
