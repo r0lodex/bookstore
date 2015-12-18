@@ -18,7 +18,7 @@ var BSA = angular.module('bookstore', [
 
 .config(function($routeProvider) {
     $routeProvider.when('/', {
-        controller: 'pilihCtrl',
+        controller: 'shopCtrl',
         templateUrl: '/templates/shop/index.html',
     });
 
@@ -40,7 +40,7 @@ var BSA = angular.module('bookstore', [
 
 // CONTROLLERS
 // =======================================
-.controller('pilihCtrl', function($rootScope, $scope, Books) {
+.controller('shopCtrl', function($rootScope, $scope, Books) {
     $scope.books = Books.query(function(r) {
         // Hiding collapse items by default
         $scope.collapse = {}

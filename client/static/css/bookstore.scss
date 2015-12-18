@@ -117,6 +117,16 @@ a:hover {
 
 .instruction {
     margin-bottom: 20px;
+    .helper-text {
+        padding: 0 5px;
+        border: 1px dotted #CCC;
+    }
+}
+
+.instruction-text {
+    display: block;
+    font-size: 0.7em;
+    margin: 5px 0;
 }
 
 // ANIMATIONS
