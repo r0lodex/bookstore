@@ -14,6 +14,23 @@ var BSA = angular.module('bookstore', [
 
 .run(function($rootScope){
     $rootScope.cartItems = []
+    $rootScope.grandTotal = function() {
+        var tot = { count: 0, total: 0 }
+        if ($rootScope.cartItems.length) {
+            $rootScope.cartItems.forEach(function(v) {
+                if (v.items) {
+                    v.items.forEach(function(bv) {
+                        tot.total += bv.price * bv.qty
+                        tot.count += bv.qty
+                    })
+                } else {
+                    tot.total += v.price * v.qty
+                    tot.count += v.qty
+                }
+            })
+        }
+        return tot;
+    }
 })
 
 .config(function($routeProvider) {
@@ -54,7 +71,7 @@ var BSA = angular.module('bookstore', [
         books.forEach(function(v,k) {
             if (v.checked) {
                 tot.price += v.price * v.qty
-                tot.count++
+                tot.count += v.qty
             }
         })
         return tot

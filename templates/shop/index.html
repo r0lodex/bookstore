@@ -6,10 +6,10 @@
 </div>
 
 <div class="shop-container">
-    <input class="form-control form-control-sm" placeholder="Carian" ng-model="query">
+    <input class="form-control form-control-sm" placeholder="Carian (Tajuk, Penerbit, Tahun dsb.)" ng-model="query">
     <div class="item-list" ng-show="!query">
         <h6 class="text-center">
-                Pakej
+                Pakej Saranan
                 <small class="instruction-text">Klik nama pakej untuk melihat kandungan pakej.</small>
         </h6>
         <ul uib-collapse="col_pack" class="list-group animate">
@@ -22,7 +22,7 @@
                     <li><strong>RM<span ng-bind="updatePackageDetail(package.items).price | number: 2"></span></strong></li>
                     <li><a ng-click="addToCart(package.items)"><span class="lnr lnr-plus-circle"></span> Ambil</a></li>
                 </ul>
-                <div uib-collapse="collapse[$index]" class="package-content animate">
+                <div uib-collapse="collapse[$index]" class="table-responsive package-content animate">
                     <small class="text-muted">Buang tanda <input type="checkbox" checked disabled> pada <i>item</i> yang tidak berkenaan. Kuantiti boleh diubah pada <a href="#/bayar">Bayar</a>.</small>
                     <table class="table table-striped table-sm small">
                         <thead>
@@ -64,7 +64,7 @@
                     Senarai <span ng-bind="b.category"></span>
                 </a>
             </h6>
-            <div uib-collapse="sen[$index]" class="animate">
+            <div uib-collapse="sen[$index]" class="table-responsive animate">
                 <table class="table table-striped table-sm small">
                     <thead>
                         <tr>

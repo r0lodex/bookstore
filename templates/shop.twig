@@ -8,6 +8,10 @@
 <body ng-app="bookstore">
 
 <div class="container">
+    <a id="cart_overview" class="small" ng-show="cartItems.length" href="#/bayar">
+        <span ng-bind="grandTotal().count"></span> Items RM<span ng-bind="grandTotal().total | number:2"></span>
+    </a>
+
     <div class="text-center shop-header">
         <h1><span class="lnr lnr-store"></span></h1>
         <h3>
