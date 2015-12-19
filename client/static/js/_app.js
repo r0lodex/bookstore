@@ -16,6 +16,8 @@ var BSA = angular.module('bookstore', [
 .run(function($rootScope, $location){
     $rootScope.cartItems = [{"id":3,"qty":2,"title":"Kemahiran Hidup","publisher":"DBP","published_year":"2013","price":199.99,"checked":true},{"id":4,"qty":2,"title":"Pendidikan Moral","publisher":"Longman","published_year":"2012","price":130,"checked":true}]
     $rootScope.delivery_method = {
+        fullname: '',
+        phone_no: '',
         address: '',
         method: 2
     }
@@ -160,5 +162,11 @@ var BSA = angular.module('bookstore', [
 })
 
 .controller('bayarCtrl', function($scope, $rootScope) {
-    console.log($rootScope.delivery_method)
+    $scope.submitOrder = function() {
+        var obj = {
+            items: $rootScope.cartItems,
+            user_data: $rootScope.delivery_method
+        }
+        console.log(obj)
+    }
 })
