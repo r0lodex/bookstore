@@ -21,7 +21,7 @@
         {
             "category" : "Tahun 1",
             "items": [
-                { "id": 1, "qty": 2, "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
+                { "id": 1, "title": "Bahasa Malaysia", "publisher": "DBP", "published_year": "2013", "price": 199.99 },
                 { "id": 5, "title": "Matematik", "publisher": "Sasbadi", "published_year": "2013", "price": 80.00 },
                 { "id": 6, "title": "Sejarah", "publisher": "DBP", "published_year": "2013", "price": 120.00 },
                 { "id": 7, "title": "Sains", "publisher": "Longman", "published_year": "2013", "price": 150.00 }

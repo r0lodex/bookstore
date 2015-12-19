@@ -1,6 +1,6 @@
 <div class="instruction text-center">
     <small class="text-muted">
-        Klik <span class="helper-text"><span class="lnr lnr-plus-circle"></span> Ambil</span> untuk memilih <i>item</i> yang berkenaan.<br>
+        Klik <span class="helper-text"><span class="lnr lnr-plus-circle"></span> Ambil</span> untuk memilih <i>item</i> yang berkenaan.
         Klik <a href="#/bayar">Bayar</a> untuk menyemak ambilan dan membuat pembayaran.<br>
     </small>
 </div>
@@ -18,7 +18,7 @@
                     <a ng-click="collapse[$index] = !collapse[$index]" class="text-success"><strong ng-bind="package.title"></strong></a>
                 </span>
                 <ul class="package-control list-inline small">
-                    <li ng-bind="updatePackageDetail(package.items).count + ' item'"></li>
+                    <li class="hidden-sm-down" ng-bind="updatePackageDetail(package.items).count + ' item'"></li>
                     <li><strong>RM<span ng-bind="updatePackageDetail(package.items).price | number: 2"></span></strong></li>
                     <li><a ng-click="addToCart(package.items, package)"><span class="lnr lnr-plus-circle"></span> Ambil</a></li>
                 </ul>
@@ -28,8 +28,6 @@
                         <thead>
                             <tr>
                                 <th>Tajuk Buku</th>
-                                <th>Penerbit</th>
-                                <th>Tahun</th>
                                 <th class="text-center">Qty</th>
                                 <th class="text-right">Harga <span class="hidden-sm-down">RM</span></th>
                                 <th class="text-right">Jumlah <span class="hidden-sm-down">RM</span></th>
@@ -39,10 +37,14 @@
                             <tr ng-repeat="book in package.items" ng-init="book.checked = true;">
                                 <td>
                                     <input type="checkbox" checked ng-model="book.checked">
-                                    <span class="package-list-title" ng-bind="book.title"></span>
+                                    <span class="package-list-title">
+                                        <span ng-bind="book.title"></span>
+                                        <small class="text-muted">
+                                            <span ng-bind="book.publisher"></span>,
+                                            <span ng-bind="book.published_year"></span>
+                                        </small>
+                                    </span>
                                 </td>
-                                <td ng-bind="book.publisher"></td>
-                                <td ng-bind="book.published_year">2013</td>
                                 <td class="text-center" ng-bind="book.qty">
                                     <!-- <select ng-model="book.qty" ng-options="v for v in [1,2,3,4,5]" ng-change="updatePackageTotal(package.books)"></select> -->
                                 </td>
@@ -69,8 +71,6 @@
                     <thead>
                         <tr>
                             <th>Tajuk Buku</th>
-                            <th>Penerbit</th>
-                            <th>Tahun</th>
                             <th class="text-right">Harga <span class="hidden-sm-down">RM</span></th>
                             <th class="text-center">Qty</th>
                             <!-- <th class="text-right">Jumlah <span class="hidden-sm-down">RM</span></th> -->
@@ -79,9 +79,13 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="book in b.items | filter:query" ng-init="book.qty = 1">
-                            <td ng-bind="book.title"></td>
-                            <td ng-bind="book.publisher"></td>
-                            <td ng-bind="book.published_year">2013</td>
+                            <td>
+                                <span ng-bind="book.title"></span>
+                                <small class="text-muted">
+                                    <span ng-bind="book.publisher"></span>,
+                                    <span ng-bind="book.published_year"></span>
+                                </small>
+                            </td>
                             <td class="text-right" ng-bind="book.price | number:2"></td>
                             <td class="text-center">
                                 <select ng-model="book.qty" ng-options="v for v in [1,2,3,4,5]"></select>

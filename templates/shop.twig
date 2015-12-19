@@ -8,7 +8,7 @@
 <body ng-app="bookstore">
 
 <div class="container">
-    <a id="cart_overview" class="small" href="#/bayar">
+    <a id="cart_overview" class="small" href="#/bayar" ng-show="currentPath == '/'">
         <span ng-bind="grandTotal().count"></span> item RM<span ng-bind="grandTotal().total | number:2"></span>
     </a>
 

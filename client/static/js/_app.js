@@ -14,7 +14,7 @@ var BSA = angular.module('bookstore', [
 })
 
 .run(function($rootScope, $location){
-    $rootScope.cartItems = []
+    $rootScope.cartItems = [{"id":3,"qty":2,"title":"Kemahiran Hidup","publisher":"DBP","published_year":"2013","price":199.99,"checked":true},{"id":4,"qty":2,"title":"Pendidikan Moral","publisher":"Longman","published_year":"2012","price":130,"checked":true}]
     $rootScope.grandTotal = function() {
         var tot = { count: 0, total: 0 }
         if ($rootScope.cartItems.length) {
@@ -142,6 +142,7 @@ var BSA = angular.module('bookstore', [
             }
         }
         Notification(msg)
+        console.log(JSON.stringify($rootScope.cartItems))
     }
 })
 

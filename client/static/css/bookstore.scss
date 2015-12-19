@@ -80,12 +80,15 @@ a {
 
 .shop-container {
     max-width: 700px;
-    margin: 0 auto;
-    .list-group > li { position: relative; }
+    margin: 0 auto 50px;
+    .list-group > li {
+        position: relative;
+        padding: 10px;
+    }
     .package-control {
         position: absolute;
-        right: 16px;
-        top: 16px;
+        right: 10px;
+        top: 14px;
     }
     .package-content {
         margin-top: 10px;
@@ -111,6 +114,9 @@ a {
         }
     }
     td {
+        small { display: block; }
+        &.nowrap { white-space: nowrap; }
+        vertical-align: middle;
         position: relative;
         input[type="checkbox"] {
             position: absolute;
@@ -125,7 +131,7 @@ a {
 
 .cart-container {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
 }
 
 .empty {
@@ -159,8 +165,12 @@ a {
     margin: 5px 0;
 }
 
-// ANIMATIONS
+.delivery_method {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
 
+// ANIMATIONS
 .animate.collapsing {
     transition-duration: 0.1s;
     transition-timing-function: ease-in;
