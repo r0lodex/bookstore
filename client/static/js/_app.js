@@ -42,8 +42,11 @@ var BSA = angular.module('bookstore', [
     }
 
     $rootScope.removeFromCart = function(item) {
-        var index = $rootScope.cartItems.indexOf(item);
-        $rootScope.cartItems.splice(index, 1);
+        var a = confirm('Buang ' + item.title + ' dari ambilan?')
+        if (a) {
+            var index = $rootScope.cartItems.indexOf(item);
+            $rootScope.cartItems.splice(index, 1);
+        }
     }
 
     $rootScope.$on('$routeChangeSuccess', function () {
