@@ -52,6 +52,10 @@ $app->on('GET /', function() {
 })->on('GET /shop', function() {
     // Yang ni sepatutnya ada middleware that checks for session
     $this->end(render('shop', []));
+
+})->on('GET /admin/dashboard', function() {
+    // Yang ni sepatutnya ada middleware that checks for session
+    $this->end(render('admin/dashboard', []));
 });
 
 // FORM SUBMISSION

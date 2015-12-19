@@ -14,7 +14,7 @@ var BSA = angular.module('bookstore', [
 })
 
 .run(function($rootScope, $location){
-    $rootScope.cartItems = [{"id":3,"qty":2,"title":"Kemahiran Hidup","publisher":"DBP","published_year":"2013","price":199.99,"checked":true},{"id":4,"qty":2,"title":"Pendidikan Moral","publisher":"Longman","published_year":"2012","price":130,"checked":true}]
+    $rootScope.cartItems = []
     $rootScope.delivery_method = {
         fullname: '',
         phone_no: '',
