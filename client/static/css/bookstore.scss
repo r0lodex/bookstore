@@ -40,6 +40,12 @@ a {
     border: 1px solid #FFF;
 }
 
+#shop {
+    .form-group {
+        margin-bottom: 2px;
+        label { font-size: 0.7em; }
+    }
+}
 
 .shop-header {
     h1 {
@@ -101,7 +107,7 @@ a {
 }
 
 .table {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     thead th {
         @extend .text-muted;
         font-weight: normal;
@@ -148,6 +154,16 @@ a {
         margin: 15px 0;
         font-weight: bold;
         @extend .text-muted;
+    }
+}
+
+#grandTotal {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    small, strong {
+        display: block;
     }
 }
 

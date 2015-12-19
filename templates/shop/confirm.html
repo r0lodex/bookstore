@@ -1,0 +1,35 @@
+<div class="instruction text-center">
+    <small class="text-muted">
+        <a href="#/bayar"><small><span class="lnr lnr-arrow-left"></span> Kembali ke semakan.</small></a><br>
+        <span ng-if="delivery_method.method == 2">
+            Isikan borang dibawah untuk penghantaran.
+        </span>
+        <span ng-if="delivery_method.method == 1">
+            Alamat pengambilan boleh didapati <a href="/contact">di sini</a>
+        </span>
+    </small>
+</div>
+<div class="cart-container">
+    <form>
+        <fieldset class="form-group">
+            <label>Nama Penuh</label>
+            <input class="form-control form-control-sm" placeholder="cth. Muhammad bin Abdullah">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>No Telefon</label>
+            <input class="form-control form-control-sm" placeholder="cth. 0123456789">
+        </fieldset>
+        <fieldset class="form-group" ng-if="delivery_method.method == 2">
+            <label>Alamat Penghantaran</label>
+            <textarea class="form-control form-control-sm" rows="4" placeholder="cth. No 12, Jalan Ramlee 2, Taman Ramlee, 81200 Johor Bahru Johor."></textarea>
+        </fieldset>
+    </form>
+
+    <div id="grandTotal" class="text-center" style="margin-top: 20px">
+        <small class="text-muted">Jumlah Keseluruhan</small>
+        <strong style="margin-bottom: 20px">RM<span ng-bind="grandTotal().total | number:2"></span></strong>
+        <a class="btn btn-primary btn-sm" href="#/confirm">
+            Bayar Sekarang
+        </a>
+    </div>
+</div>

@@ -5,10 +5,10 @@
     <title>Kedai Buku SIH &mdash; Dashboard</title>
     <link rel="stylesheet" type="text/css" href="/client/static/css/bookstore.css" />
 </head>
-<body ng-app="bookstore">
+<body ng-app="bookstore" id="shop">
 
 <div class="container">
-    <a id="cart_overview" class="small" href="#/bayar" ng-show="currentPath == '/'">
+    <a id="cart_overview" class="small" href="#/bayar" ng-show="currentPath != '/bayar'">
         <span ng-bind="grandTotal().count"></span> item RM<span ng-bind="grandTotal().total | number:2"></span>
     </a>
 
@@ -20,12 +20,12 @@
         </h3>
         <ul class="list-inline small">
             <li><a ng-class="{ active: currentPath == '/' }" href="#/pilih">Pilih</a></li>
-            <li><a ng-class="{ active: currentPath == '/bayar' }" href="#/bayar">Bayar <span ng-show="cartItems.length" class="notification text-warning">&bull;</span></a></li>
+            <li><a ng-class="{ active: currentPath == '/bayar' || currentPath == '/confirm' }" href="#/bayar">Bayar <span ng-show="cartItems.length" class="notification text-warning">&bull;</span></a></li>
             <li><a href="/">Keluar</a></li>
         </ul>
     </div>
     <hr>
-    <div ng-view></div>
+    <div ng-view autoscroll=""></div>
 </div>
 
 

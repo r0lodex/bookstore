@@ -46,14 +46,16 @@
             </table>
         </div>
         <div class="text-center">
-            <small class="text-muted">Jumlah Keseluruhan</small><br>
-            <strong>RM<span ng-bind="grandTotal().total | number:2"></span></strong><br><br>
+            <div id="grandTotal">
+                <small class="text-muted">Jumlah Keseluruhan</small>
+                <strong>RM<span ng-bind="grandTotal().total | number:2"></span></strong>
+            </div>
             <small class="text-muted">Metod penerimaan barangan?</small>
             <ul class="list-inline small delivery_method">
                 <li>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="delivery_method" value="1" checked>
+                            <input type="radio" ng-model="delivery_method.method" ng-value="1">
                             Ambil Sendiri
                         </label>
                     </div>
@@ -61,13 +63,13 @@
                 <li>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="delivery_method" value="2">
+                            <input type="radio" ng-model="delivery_method.method" ng-value="2">
                             Hantar ke Rumah
                         </label>
                     </div>
                 </li>
             </ul>
-            <a class="btn btn-primary btn-sm" href="#/bayar/confirm">
+            <a class="btn btn-primary btn-sm" href="#/confirm">
                 Seterusnya <span class="lnr lnr-arrow-right"></span>
             </a>
             <!-- <a class="btn btn-secondary btn-sm">Bayar RM<span ng-bind="grandTotal().total | number:2"></span></a> -->

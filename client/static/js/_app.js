@@ -15,6 +15,11 @@ var BSA = angular.module('bookstore', [
 
 .run(function($rootScope, $location){
     $rootScope.cartItems = [{"id":3,"qty":2,"title":"Kemahiran Hidup","publisher":"DBP","published_year":"2013","price":199.99,"checked":true},{"id":4,"qty":2,"title":"Pendidikan Moral","publisher":"Longman","published_year":"2012","price":130,"checked":true}]
+    $rootScope.delivery_method = {
+        address: '',
+        method: 2
+    }
+
     $rootScope.grandTotal = function() {
         var tot = { count: 0, total: 0 }
         if ($rootScope.cartItems.length) {
@@ -60,9 +65,14 @@ var BSA = angular.module('bookstore', [
         templateUrl: '/templates/shop/index.html',
     });
 
-    $routeProvider.when('/bayar/:query?', {
+    $routeProvider.when('/bayar', {
         controller: 'bayarCtrl',
         templateUrl: '/templates/shop/bayar.html',
+    });
+
+    $routeProvider.when('/confirm', {
+        controller: 'bayarCtrl',
+        templateUrl: '/templates/shop/confirm.html',
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });
@@ -138,10 +148,10 @@ var BSA = angular.module('bookstore', [
             angular.copy(books, obj)
             add = checkdupes($rootScope.cartItems, obj)
             if (add) {
-                msg = obj.qty + 'x ' + obj.title + ' diambil.'
+                msg = obj.qty + 'x ' + obj.title + ' telah diambil.'
                 $rootScope.cartItems.push(obj)
             } else {
-                msg = 'Kuantiti untuk ' + obj.title + ' ditambah ' + obj.qty
+                msg = 'Kuantiti untuk ' + obj.title + ' telah ditambah ' + obj.qty
             }
         }
         Notification(msg)
@@ -149,4 +159,6 @@ var BSA = angular.module('bookstore', [
     }
 })
 
-.controller('bayarCtrl', function($scope) {})
+.controller('bayarCtrl', function($scope, $rootScope) {
+    console.log($rootScope.delivery_method)
+})
