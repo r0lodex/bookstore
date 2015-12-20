@@ -7,7 +7,22 @@
 </head>
 <body ng-app="dashboard">
 
-testing 123
+<nav id="navigasi">
+    <div class="container">
+        <div class="nav-title text-muted"><span class="lnr lnr-layers"></span> Dashboard Kedai SIH</div>
+        <ul class="list-inline small">
+            <li><a ng-class="{ active: currentPath == '/' }" href="#/">Utama</a></li>
+            <li><a ng-class="{ active: currentPath == '/order' }" href="#/order">Order</a></li>
+            <li><a ng-class="{ active: currentPath == '/inventori' }" href="#/inventori">Inventori</a></li>
+            <li><a ng-class="{ active: currentPath == '/pengguna' }" href="#/pengguna">Pengguna</a></li>
+            <li class="pull-right"><a href="/">Keluar</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="content">
+    <div class="container" ng-view autoscroll></div>
+</div>
 
 
 <script src="/client/static/js/min/_libraries-min.js"></script>

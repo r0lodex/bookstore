@@ -4,3 +4,25 @@
 @import 'linearicons';
 
 body { background: #EEE; }
+
+a:hover {
+    text-decoration: none;
+}
+
+#navigasi {
+    padding: 10px 0 0;
+    border-bottom: 1px solid #CCC;
+    background: #FFF;
+    .nav-title { margin-bottom: 5px; }
+    .active {
+        color: #666;
+        border-bottom: 1px solid;
+        &:hover { cursor: default; }
+    }
+}
+
+#content { margin-top: 10px; }
+.dashboard-card {
+    background: #FFF;
+}
+
