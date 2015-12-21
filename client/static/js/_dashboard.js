@@ -8,6 +8,8 @@ var dashboard = angular.module('dashboard', [
     'ui-notification'
 ])
 
+// APP CONFIGURATION
+// =======================================
 .config(function($routeProvider) {
     $routeProvider.when('/', {
         controller: 'homeCtrl',
@@ -40,13 +42,27 @@ var dashboard = angular.module('dashboard', [
     });
 })
 
+// FACTORIES
+// =======================================
+.factory('Order', function($resource) {
+    return $resource('/fixtures.json', {}, {
+        query: { method: 'GET', isArray: false }
+    })
+})
+
+// GLOBAL
+// =======================================
 .run(function($rootScope, $location) {
     $rootScope.$on('$routeChangeSuccess', function () {
         $rootScope.currentPath = $location.path();
     });
 })
 
+// CONTROLLERS
+// =======================================
 .controller('homeCtrl', function($scope) {})
-.controller('orderCtrl', function($scope) {})
+.controller('orderCtrl', function($scope, Order) {
+    $scope.orders = Order.query();
+})
 .controller('inventoriCtrl', function($scope) {})
 .controller('penggunaCtrl', function($scope) {})

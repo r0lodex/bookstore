@@ -22,7 +22,48 @@ a:hover {
 }
 
 #content { margin-top: 10px; }
+
 .dashboard-card {
     background: #FFF;
 }
 
+.header-text { font-size: 0.8em; }
+
+.table {
+    thead th {
+        @extend .text-muted;
+        font-weight: normal;
+        font-size: 0.8em;
+        border-bottom: 0;
+        input[type="checkbox"] {
+            position: relative;
+            top: -1px;
+            margin-right: 8px;
+        }
+    }
+    td {
+        small { display: block; }
+        &.nowrap { white-space: nowrap; }
+        vertical-align: middle;
+        position: relative;
+        input[type="checkbox"] {
+            position: absolute;
+            top: 8px;
+        }
+    }
+    .package-list-title {
+        display: inline-block;
+        padding-left: 20px;
+    }
+}
+
+.text-status {
+    position: relative;
+    padding-left: 15px;
+    .light-bulb {
+        font-size: 2em;
+        position: absolute;
+        left: 0;
+        top: -60%;
+    }
+}

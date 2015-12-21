@@ -35,5 +35,10 @@
                 { "id": 10, "title": "Sains", "publisher": "Longman", "published_year": "2013", "price": 150.00 }
             ]
         }
+    ],
+    "orders": [
+        { "id": 123, "email": "ahseng@email.com", "total": 200.00, "status": 1, "delivery_method": 2 },
+        { "id": 124, "email": "ahmad@email.com", "total": 150.00, "status": 2, "delivery_method": 1 },
+        { "id": 125, "email": "raju@email.com", "total": 550.00, "status": 3, "delivery_method": 1 }
     ]
 }
